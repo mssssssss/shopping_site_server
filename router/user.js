@@ -111,7 +111,7 @@ router.get("/getSatisUser", (req, res) => {
 // 添加用户信息
 router.get("/addUser", (req, res) => {
   const obj = req.query;
-  let role = req.query.role === "普通用户" ? 0 : 1;
+  let role = req.query.role === "0" ? 0 : 1;
   let sql = `insert into user_info(user_name,password,user_role,tel,email,user_balance) values ('${obj.username}','${obj.password}','${role}','${obj.phone}','${obj.email}',0 )`;
   db.query(sql, (result) => {
     // if (err) throw err;
